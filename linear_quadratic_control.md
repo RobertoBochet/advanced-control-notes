@@ -1,4 +1,4 @@
-# LQ control
+# Linear Quadratic control (LQ control)
 
 ## Goal
 
@@ -75,6 +75,11 @@ $$\dot{x}(t) = (A - B\bar{K})x(t)$$
 We introduce the concept that the matrix $Q$ can be partitioned as $Q=C'_qC_q$ where $C_q$ is not unique
 
 *If the **pair $(A,C_q)$ is observable** and the **pair $(A,B)$ is reachable**, then the closed-loop is **asymptotically stable**.*
+
+### Robustness
+
+It's possible prove that the **LQ control** have a **margin phase at least equal of $60°$** and a **gain margin at least equal of $1/2$**
+
 
 ## Conclusion
 
