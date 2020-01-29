@@ -18,7 +18,9 @@ NB: Q and R can be not symmetric because of for a not symmetric matrix $\Gamma$ 
 
 $$ \upsilon'\Gamma\upsilon = \upsilon'\frac{\Gamma+\Gamma'}{2}\upsilon $$
 
-## Find an optimal solution
+## Procedure
+
+### Find an optimal solution
 
 We need to find
 
@@ -54,7 +56,7 @@ $$\dot{P}(t) + Q - P(t)BR^{-1}B'P'(t) + P(t)A + A'P'(t) = 0$$
 
 this equation is known as the differential Riccati equation.
 
-## Time invariant control law
+### Time invariant control law
 
 *If the pair $(A, B)$ is reachable, then the differential Riccati equation with $P(0)=0$ tends to a constant matrix $\bar{P} \geq 0$, semi-definite positive solution of*
 
@@ -72,4 +74,15 @@ $$\dot{x}(t) = (A - B\bar{K})x(t)$$
 
 We introduce the concept that the matrix $Q$ can be partitioned as $Q=C'_qC_q$ where $C_q$ is not unique
 
-*If the pair $(A,C_q)$ is observable and the pair $(A,B)$ is reachable, then the closed-loop is asymptotically stable.*
+*If the **pair $(A,C_q)$ is observable** and the **pair $(A,B)$ is reachable**, then the closed-loop is **asymptotically stable**.*
+
+## Conclusion
+
+The closed-loop system is in the form
+
+$$\dot{x}(t) = (A - B\bar{K})x(t)$$
+
+which is the same is gotten with the **poles placement** approach.
+So, why use the **LQ control** instead of **poles placement control** if both lead us to the same control schema?
+
+In **PLC** we have to choose the position of the poles of the closed-loop, understand where the poles have to be placed to get a wanted behavior is not so easy, so in **LQ control** we don't impose the poles but instead we "tell" to the system which behavior should be penalized.
