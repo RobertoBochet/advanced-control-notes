@@ -43,3 +43,19 @@ $$\bar{e}(t)=E\left[e(t)\right],\quad \dot{\bar{e}}(t)=\left[A-L(t)C\right]\bar{
 If it's true that the initial state is known
 
 $$E\left[e(t)\right]=E\left[x(0)-\hat{x}(0)\right]=0 \quad\Rightarrow\quad \bar{e}(t)=0, \forall t\geq0 $$
+
+### Steady state filter
+
+We introduce $\tilde{Q}=B_qB'_q$ so
+
+*If the **pair $(A,B_q)$ is reachable** and the **pair $(A,C)$ is observable**, then the steady state observer is **asymptotically stable** and it's defined as*
+
+$$\dot{\hat{x}}(t) = \left(A-\bar{L}C\right)\hat{x}(t) + Bu(t) + \bar{L}y(t)$$
+
+with
+
+$$\bar{L}=\bar{P}C'\tilde{R}^{-1}$$
+
+where $\bar{P}$ is the unique positive solution of
+
+$$0=A\bar{P}+\bar{P}A'+\tilde{Q}-\bar{P}C'\tilde{R}^{-1}C\bar{P}$$
