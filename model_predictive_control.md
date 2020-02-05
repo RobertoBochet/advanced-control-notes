@@ -177,3 +177,31 @@ with the solution
 $$U^0(k)=(\mathcal{B}_c'\mathcal{Q}\mathcal{B}_c+\mathcal{R})^{-1}\mathcal{B}_c'\mathcal{Q}(Y^0(k)-\mathcal{A}_cx(k)-\mathcal{M}_cD(k))$$
 
 where obviously the vector $D(k)$ is unknown, so is a common practice to set $d(k+i)=d(k)$. Similar consideration can be do for $y^0(k)$ and also for it is common impose $y^0(k+i)=y^0(k)$.
+
+### Explicit integrator
+
+Obviously the **MPC** doesn't impose an integral action on the system error, so if there are errors in the model or a noise acting on the system we cannot expect that the error asymptotically vanish. It's possible enlarge the system to impose an explicit integration action on the error; let's consider this enlarged system
+
+$$
+    x(k+1) = Ax(k) + Bu(k)\\
+    v(k+1) = v(k) + e(k+1)
+$$
+
+where $e(k)=y^0-y(k)$, so
+
+$$
+    x(k+1) = Ax(k) + Bu(k)\\
+    v(k+1) = v(k) + y^0 - CAx(k) - CBu(k)
+$$
+
+and if we impose a change of variable with $\delta x(k)=x(k)-x(k-1)$ and $\delta u(k)=u(k)-u(k-1)$ we get
+
+$$
+    \delta x(k+1) = A\delta x(k) + B\delta u(k)\\
+    e(k+1) = -CA\delta x(k) + e(k) - CB\delta u(k)
+$$
+
+this is called **velocity form**.
+For this system we can use the cost function
+
+$$J(\delta x(k),\delta u(\cdot),k)=\sum\limits_{i=0}^{N-1}\left[ e'(k+i)Qe(k+i) + \delta u'(k+i)R\delta u(k+i) \right] + e'(k+N)Se(k+N)$$
