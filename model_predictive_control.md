@@ -205,3 +205,19 @@ this is called **velocity form**.
 For this system we can use the cost function
 
 $$J(\delta x(k),\delta u(\cdot),k)=\sum\limits_{i=0}^{N-1}\left[ e'(k+i)Qe(k+i) + \delta u'(k+i)R\delta u(k+i) \right] + e'(k+N)Se(k+N)$$
+
+### Control horizon
+
+It is desirable that $N$ is big enough to include all the dynamics of the system, but a bigger window involves an heavy computational load. A way to reduce this problem is define a new value $N_u$ with the constraint $0<N_u<N$ and impose
+
+$$u(k+i)=0, \quad i=N_u,...,N-1$$
+
+or
+
+$$\delta u(k+i)=0, \quad i=N_u,...,N-1$$
+
+and change the cost function to
+
+$$J(\delta x(k),\delta u(\cdot),k)=\sum\limits_{i=0}^{N-1} e'(k+i)Qe(k+i) + \sum\limits_{i=0}^{N_u-1} \delta u'(k+i)R\delta u(k+i) + e'(k+N)Se(k+N)$$
+
+so, the computational load is reduced.
