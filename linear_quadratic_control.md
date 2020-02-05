@@ -24,7 +24,7 @@ $$ \upsilon'\Gamma\upsilon = \upsilon'\frac{\Gamma+\Gamma'}{2}\upsilon $$
 
 We need to find
 
-$$ J^0(x(t),t) = \min\limits_{u} \int_0^\infty x'(\tau)Qx(\tau) + u'(\tau)Ru(\tau) \; d\tau $$
+$$J^0(x(t),t) = \min\limits_{u} \int_0^\infty x'(\tau)Qx(\tau) + u'(\tau)Ru(\tau) \; d\tau$$
 
 as for the generic optimal control we have to solve
 
@@ -66,7 +66,7 @@ So, we can find a constant value for the gain $K$ and a time invariant control l
 
 $$\bar{K} = R^{-1}B'\bar{P}, \quad u(t)=-\bar{K}x(t)$$
 
-## Stability of the closed-loop system
+### Stability of the closed-loop system
 
 With the time invariant control law the dynamics system became
 
@@ -75,6 +75,16 @@ $$\dot{x}(t) = (A - B\bar{K})x(t)$$
 We introduce the concept that the matrix $Q$ can be partitioned as $Q=C'_qC_q$ where $C_q$ is not unique
 
 *If the the **pair $(A,B)$ is reachable** and **pair $(A,C_q)$ is observable**, then the closed-loop is **asymptotically stable**.*
+
+#### Cost function as Ljapunov function
+
+Can be useful note that the function $J^0(x)$ can be use as Ljapunov function to demonstrate the stability of the closed-loop with time invariant control law.
+
+$$J^0(x)=x'\bar{P}x >0, \quad x\ne0 \quad and \quad J^0(0)=0$$
+
+and its derivative is
+
+$$\frac{\partial J^0(x,t)}{\partial t} = \dot{x}'\bar{P}x + x'\bar{P}\dot{x} = -x'(Q+\bar{K}'R\bar{K})x$$
 
 ### Robustness
 
