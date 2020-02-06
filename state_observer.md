@@ -46,3 +46,35 @@ $$
 again, if we define the observer's error as $\hat{e}(k|k)=x(k)-\hat{x}(k|k-1)$ we get
 
 $$\hat{e}(k+1|k+1)=(A-LCA)\hat{e}(k|k)$$
+
+### Estimate constant disturbance
+
+If the system is affected by a constant disturbance 
+
+$$
+    x(k+1) = Ax(k) + Bu(k) + Md\\
+    y(k) = Cx(k) + Nd
+$$
+
+we can enlarge the system's state to consider the disturbance as a constant state $d(k+1)=d(k)$
+
+$$
+    \begin{bmatrix}
+        x(k+1) \\ 
+        d(k+1) 
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        A & M \\ 
+        0 & I 
+    \end{bmatrix}
+    \begin{bmatrix}
+        x(k) \\ 
+        d(k) 
+    \end{bmatrix} +
+    \begin{bmatrix}
+        B \\ 
+        0 
+    \end{bmatrix}u(k)
+$$
+
+Now, we can estimate the disturbance with an state observer.
